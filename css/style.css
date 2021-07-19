@@ -59,6 +59,10 @@ header h1 {
   background-image: linear-gradient(180deg, #ff79da, #9356dc);
   box-shadow: 0 5px 5px #cecece;
 }
+.btn:hover {
+  background-image: linear-gradient(180deg, #ff93e1, #a16be0);
+  box-shadow: 0 10px 10px #cecece;
+}
 
 .fonctionnement h2 {
   margin-left: 20px;
@@ -86,6 +90,12 @@ header h1 {
 }
 .fonctionnement__etapes p {
   font-weight: bold;
+}
+.fonctionnement__etapes:hover {
+  background-color: #f5edff;
+}
+.fonctionnement__etapes:hover i {
+  color: #9356dc;
 }
 
 .restaurant {
@@ -158,6 +168,111 @@ footer a {
 }
 footer i {
   margin-right: 10px;
+}
+
+.header_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.header_menu a {
+  font-size: 1.5em;
+  color: #5a5a5a;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+
+.background {
+  width: 100%;
+  height: 300px;
+}
+.background__img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.main_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f6f6f6;
+  padding-bottom: 50px;
+}
+.main_menu h1 {
+  font-family: "Shrikhand", cursive;
+}
+.main_menu .titre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f6f6f6;
+  width: 100%;
+  margin-top: -100px;
+  border-radius: 30px 30px 0 0;
+  padding: 10px 20px 0 20px;
+  box-sizing: border-box;
+  font-size: 0.8em;
+}
+.main_menu .titre i {
+  font-size: 2em;
+}
+.main_menu section {
+  background-color: #f6f6f6;
+  padding: 0 20px;
+}
+.main_menu section h2 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+.main_menu section article {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 5px #cecece;
+}
+.main_menu section article h3, .main_menu section article p {
+  margin: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.main_menu section article p {
+  font-size: 0.9em;
+}
+.main_menu section article .plat {
+  width: 80%;
+}
+.main_menu section article .prix {
+  display: flex;
+  align-items: flex-end;
+  padding-right: 10px;
+}
+.main_menu section article:hover .plat {
+  width: 65%;
+}
+.main_menu section article:hover .prix {
+  width: 15%;
+}
+.main_menu section article:hover .anim {
+  width: 20%;
+  background-color: #99e2d0;
+}
+.main_menu .btn {
+  width: 55%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.fa-heart:hover {
+  transition: color 1s ease-out;
+  color: red;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
