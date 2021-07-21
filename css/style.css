@@ -6,6 +6,54 @@ body {
   margin: auto;
 }
 
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.loader {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  animation: loader 1000ms 2000ms forwards;
+}
+.loader__gradient {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-image: linear-gradient(180deg, #ff79da, #9356dc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loading 1000ms infinite linear;
+}
+.loader__rond {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: white;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -138,7 +186,7 @@ header h1 {
 .restaurant__cards p {
   margin: 5px 0 0 10px;
 }
-.restaurant__cards i {
+.restaurant__cards .coeur {
   position: absolute;
   bottom: 30px;
   right: 20px;
@@ -193,6 +241,90 @@ footer i {
   width: 100%;
 }
 
+@keyframes menu_anim {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.load_menu--1 {
+  animation: menu_anim 500ms both;
+  animation-delay: 300ms;
+}
+
+.load_menu--2 {
+  animation: menu_anim 500ms both;
+  animation-delay: 600ms;
+}
+
+.load_menu--3 {
+  animation: menu_anim 500ms both;
+  animation-delay: 900ms;
+}
+
+.load_menu--4 {
+  animation: menu_anim 500ms both;
+  animation-delay: 1200ms;
+}
+
+.load_menu--5 {
+  animation: menu_anim 500ms both;
+  animation-delay: 1500ms;
+}
+
+.load_menu--6 {
+  animation: menu_anim 500ms both;
+  animation-delay: 1800ms;
+}
+
+.load_menu--7 {
+  animation: menu_anim 500ms both;
+  animation-delay: 2100ms;
+}
+
+.load_menu--8 {
+  animation: menu_anim 500ms both;
+  animation-delay: 2400ms;
+}
+
+.load_menu--9 {
+  animation: menu_anim 500ms both;
+  animation-delay: 2700ms;
+}
+
+.load_menu--10 {
+  animation: menu_anim 500ms both;
+  animation-delay: 3000ms;
+}
+
+@keyframes test-anim {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 20%;
+  }
+}
+@keyframes test-plat {
+  from {
+    width: 80%;
+  }
+  to {
+    width: 65%;
+  }
+}
+@keyframes test-prix {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 15%;
+  }
+}
 .main_menu {
   display: flex;
   flex-direction: column;
@@ -235,6 +367,8 @@ footer i {
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 5px 5px #cecece;
+  overflow: hidden;
+  cursor: pointer;
 }
 .main_menu section article h3, .main_menu section article p {
   margin: 10px;
@@ -253,15 +387,25 @@ footer i {
   align-items: flex-end;
   padding-right: 10px;
 }
+.main_menu section article .anim {
+  width: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 15px 15px 0;
+}
 .main_menu section article:hover .plat {
-  width: 65%;
+  animation: test-plat 1000ms both;
 }
 .main_menu section article:hover .prix {
-  width: 15%;
+  animation: test-prix 1000ms both;
 }
 .main_menu section article:hover .anim {
-  width: 20%;
+  animation: test-anim 1000ms both;
   background-color: #99e2d0;
+}
+.main_menu section article:hover .anim .fa-check-circle {
+  transform: rotate(0);
 }
 .main_menu .btn {
   width: 55%;
@@ -269,10 +413,33 @@ footer i {
   margin-top: 30px;
 }
 
-.fa-heart:hover {
-  transition: color 1s ease-out;
-  color: red;
-  font-weight: bold;
+.fa-check-circle {
+  font-size: 2em;
+  color: white;
+  transform: rotate(-360deg);
+  transition: transform 1000ms;
+}
+
+.coeur_plein {
+  margin-right: -29px;
+  opacity: 0;
+}
+
+@keyframes coeur_anim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.coeur:hover .fa-heart {
+  background: -webkit-gradient(linear, left top, left bottom, from(#9356dc), to(#ff79da));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.coeur:hover .coeur_plein {
+  animation: coeur_anim 1000ms forwards;
 }
 
 /*# sourceMappingURL=style.css.map */

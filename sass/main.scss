@@ -12,6 +12,47 @@ body {
     margin: auto;
 }
 
+@keyframes loader {
+    0% {opacity: 1;}
+    100% {opacity: 0; visibility: hidden;}
+}
+
+@keyframes loading {
+    0% {transform: rotate(-360deg);}
+    100% {transform: rotate(0);}
+}
+
+.loader {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    animation: loader 1000ms 2000ms forwards;
+    &__gradient {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-image: $degrade;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: loading 1000ms infinite linear;
+    }
+    &__rond {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: white;
+    }
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -144,7 +185,7 @@ header {
         p {
             margin: 5px 0 0 10px;
         }
-        i {
+        .coeur {
             position: absolute;
             bottom: 30px;
             right: 20px;
@@ -201,6 +242,39 @@ footer {
     }
 }
 
+@keyframes menu_anim {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@for $i from 1 to 11 {
+    .load_menu--#{$i} {
+        animation: menu_anim 500ms both;
+        animation-delay: 300ms * $i;
+    }
+}
+
+@keyframes test-anim {
+    from {width: 0%;}
+    to {width:20%;}
+}
+
+@keyframes test-plat {
+    from {width: 80%;}
+    to {width:65%;}
+}
+
+@keyframes test-prix {
+    from {width: 20%;}
+    to {width:15%;}
+}
+
 .main_menu {
     display: flex;
     flex-direction: column;
@@ -241,6 +315,8 @@ footer {
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 5px 5px rgb(206, 206, 206);
+            overflow: hidden;
+            cursor: pointer;
             h3, p {
                 margin: 10px;
                 overflow: hidden;
@@ -252,22 +328,41 @@ footer {
             }
             .plat {
                 width: 80%;
+                // transition-duration: 1000ms;
+                // transition-property: width;
             }
             .prix {
                 display: flex;
                 align-items: flex-end;
                 padding-right: 10px;
+                // transition-duration: 1000ms;
+                // transition-property: width;
+            }
+            .anim {
+                width: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0 15px 15px 0;
+                // transition-duration: 1000ms;
+                // transition-property: width;
             }
             &:hover {
                 .plat {
-                    width: 65%;
+                    // width: 65%;
+                    animation: test-plat 1000ms both;
                 }
                 .prix {
-                    width: 15%;
+                    // width: 15%;
+                    animation: test-prix 1000ms both;
                 }
                 .anim {
-                    width: 20%;
+                    // width: 20%;
+                    animation: test-anim 1000ms both;
                     background-color: $tertiaire;
+                    .fa-check-circle {
+                        transform: rotate(0);
+                    }
                 }
             }
         }
@@ -279,10 +374,36 @@ footer {
     }
 }
 
-.fa-heart {
+.fa-check-circle {
+    font-size: 2em;
+    color: white;
+    transform: rotate(-360deg);
+    transition: transform 1000ms;
+}
+
+.coeur_plein {
+    margin-right: -29px;
+    opacity: 0;
+}
+
+@keyframes coeur_anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.coeur {
     &:hover {
-        transition: color 1s ease-out;
-        color: red;
-        font-weight: bold;
+        .fa-heart {
+            background: -webkit-gradient(linear, left top, left bottom, from($primaire), to($secondaire));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .coeur_plein {
+            animation: coeur_anim 1000ms forwards;
+        }
     }
 }
