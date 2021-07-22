@@ -8,7 +8,7 @@ $degrade: linear-gradient(180deg, $secondaire, $primaire);
 
 body {
     font-family: 'Roboto', sans-serif;
-    width: 375px;
+    // width: 375px;
     margin: auto;
 }
 
@@ -239,6 +239,7 @@ footer {
     &__img {
         object-fit: cover;
         width: 100%;
+        height: 250px;
     }
 }
 
@@ -368,7 +369,7 @@ footer {
         }
     }
     .btn {
-        width: 55%;
+        width: 300px;
         margin: auto;
         margin-top: 30px;
     }
@@ -404,6 +405,47 @@ footer {
         }
         .coeur_plein {
             animation: coeur_anim 1000ms forwards;
+        }
+    }
+}
+
+.barre_verte {
+    width: 50px;
+    height: 3px;
+    background-color: $tertiaire;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .restaurant__placement {
+        display: flex;
+        flex-wrap: wrap;
+        a {
+            width: 50%;
+        }
+    }
+    footer {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .fonctionnement__placement {
+        display: flex;
+    }
+    .fonctionnement__etapes {
+        width: 33%;
+    }
+    .restaurant__placement {
+        a {
+            width: 25%;
+        }
+    }
+    .main_menu__placement {
+        display: flex;
+        section {
+            width: 33%;
         }
     }
 }

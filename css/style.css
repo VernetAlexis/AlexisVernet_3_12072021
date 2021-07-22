@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 body {
   font-family: "Roboto", sans-serif;
-  width: 375px;
   margin: auto;
 }
 
@@ -239,6 +238,7 @@ footer i {
 .background__img {
   object-fit: cover;
   width: 100%;
+  height: 250px;
 }
 
 @keyframes menu_anim {
@@ -408,7 +408,7 @@ footer i {
   transform: rotate(0);
 }
 .main_menu .btn {
-  width: 55%;
+  width: 300px;
   margin: auto;
   margin-top: 30px;
 }
@@ -440,6 +440,48 @@ footer i {
 }
 .coeur:hover .coeur_plein {
   animation: coeur_anim 1000ms forwards;
+}
+
+.barre_verte {
+  width: 50px;
+  height: 3px;
+  background-color: #99e2d0;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant__placement {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .restaurant__placement a {
+    width: 50%;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fonctionnement__placement {
+    display: flex;
+  }
+
+  .fonctionnement__etapes {
+    width: 33%;
+  }
+
+  .restaurant__placement a {
+    width: 25%;
+  }
+
+  .main_menu__placement {
+    display: flex;
+  }
+  .main_menu__placement section {
+    width: 33%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
